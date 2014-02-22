@@ -1,0 +1,4 @@
+[17-Dec-2013 18:06:56 America/Bogota] PHP Warning:  mysql_pconnect() [<a href='function.mysql-pconnect.html'>function.mysql-pconnect.html</a>]: Access denied for user 'sos'@'localhost' (using password: YES) in /home/deredcom/public_html/sos/Connections/sos.php on line 9
+[17-Dec-2013 18:06:56 America/Bogota] PHP Fatal error:  Access denied for user 'sos'@'localhost' (using password: YES) in /home/deredcom/public_html/sos/Connections/sos.php on line 9
+[17-Dec-2013 18:07:43 America/Bogota] PHP Warning:  mysql_pconnect() [<a href='function.mysql-pconnect.html'>function.mysql-pconnect.html</a>]: Access denied for user 'sos'@'localhost' (using password: YES) in /home/deredcom/public_html/sos/Connections/sos.php on line 9
+[17-Dec-2013 18:07:43 America/Bogota] PHP Fatal error:  Access denied for user 'sos'@'localhost' (using password: YES) in /home/deredcom/public_html/sos/Connections/sos.php on line 9

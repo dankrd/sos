@@ -1,0 +1,70 @@
+article{text-align:justify;padding:.5em;margin:0 1em 1em 1em}
+body{font-family:Arial,Helvetica,sans-serif;font-size:13px;margin:0;padding:0}
+fieldset{border-radius:.5em;}
+fieldset label{display:inline-block;vertical-align:middle}
+footer{font-size:.7em}
+form{text-align:left}
+h1,h2,h3{color:#0062ab;margin:.2em}
+header,footer,#headerIng{width:100%;text-align:center;}
+header #logo,footer #logo,#headerIng #logo{max-width:300px}
+header{height:100px;padding:.5em 0;text-align:justify;position:relative;}
+header img{display:inline-block;vertical-align:middle}
+header #logoEthos{display:none}
+header #logoSos{float:left}
+header #nombreUsuario{text-align:right;margin:auto 1em auto auto}
+header #logoEthos,header #logoSos{height:80%;margin:.1em}
+input[type='button']{color:#0077a1}
+input[type='text'],input[type='tel'],input[type='date'],input[type='password'],input[type='button'],select,textarea{padding:.5em}
+table{width:100%;}
+table tr th{color:inherit;position:-webkit-sticky;top:0;background:#0077a1;color:#fff;text-align:center;padding:.3em .2em}
+li,ul{list-style:none;margin:0}
+nav{position:relative;width:100%;height:auto;}
+nav li{border-radius:.5em;background:#fff;box-shadow:rgba(180,180,180,0.5) 2px 2px 2px;display:inline-block;vertical-align:top;height:50px;width:50px;margin:5px;padding:1%;}
+nav li img{width:90%;height:90%;margin:5%}
+textarea{display:inline-block;height:6em;width:100%;margin:.3em auto !important}
+#headerIng img{width:50%}
+#contenedor{width:98%;text-align:center;padding:1em 1%;}
+#contenedor #acciones{text-align:justify;width:auto;margin:.2em 5% 0;}
+#contenedor #acciones h3,#contenedor #acciones ul,#contenedor #acciones li{display:inline-block;vertical-align:middle}
+#contenedor #acciones h3{text-align:left;width:40%}
+#contenedor #acciones ul{list-style:none;margin:0;padding:0;text-align:center;width:100%;}
+#contenedor #acciones ul li{-webkit-transition:all .3s ease-in-out;border-radius:.5em;box-shadow:#ccc 0 0 7px;cursor:pointer;height:40px;margin:auto .5em 1em;text-align:right;width:40px;}
+#contenedor #acciones ul li:hover{box-shadow:#ccc 0 0 15px;-webkit-transform:scale(1.2)}
+#contenedor div,#contenedor fieldset{display:inline-block;vertical-align:top}
+#cont_ingreso{border-radius:.5em;background:#0077a1;padding:3em .5em;max-width:400px;width:300px;margin:2em auto;text-align:center;color:#fff;}
+#cont_ingreso input{width:70%}
+#fondo{background:rgba(0,0,0,0.75);position:fixed;top:0;left:0;z-index:5;height:100%;width:100%;}
+#fondo #opcionBuscar{width:60%;height:80%;margin:5% 20%;background:#fff}
+#subMenu li{background:#0077a1;border-radius:1em 0 1em 0;color:#fff;display:inline-block;height:90px;margin:.5em;padding:1em;text-align:left;vertical-align:top;width:190px}
+#nuevo{background:url("../img/nuevo.ico") no-repeat 4px}
+#grabar{background:url("../img/graba.ico") no-repeat 4px}
+#buscar{background:url("../img/buscar.ico") no-repeat 4px}
+#reporte{background:url("../img/reporte.ico") no-repeat 4px}
+#imprimir{background:url("../img/imprimir.ico") no-repeat 4px}
+#cancelar{background:url("../img/cancelar.ico") no-repeat 4px}
+#modulos{padding:0;}
+#modulos li{background:#f00;cursor:pointer;display:inline-block;padding:1%;margin:1%;vertical-align:top;width:46%}
+#pestanas_conten{display:inline-block;box-shadow:#000 0 -1px 6px;position:relative;margin:0 auto .5em;padding:.5em;width:95%;}
+#pestanas_conten form section{display:none}
+.listadoEstados{border-radius:.5em;width:95%;margin:1em auto;text-align:left;overflow:auto;}
+.listadoEstados section{max-height:300px;width:95%;margin:.2em 2.5%;overflow:auto}
+.cuarto,.medio,.octavo,.tercio{width:100%;margin:1em auto;}
+.cuarto label,.medio label,.octavo label,.tercio label{margin:.5em 0 0}
+.cuarto input,.medio input,.octavo input,.tercio input,.cuarto select,.medio select,.octavo select,.tercio select{text-align:left;width:95%;margin:.5em 0}
+.pantallaCompleta{margin:0 auto .5em;padding:.5em;width:95%}
+@media screen and (min-width: 768px){header{text-align:right;}
+header #logoEthos{display:inline-block;height:70%;margin:.5em}
+nav{background:rgba(183,183,183,0.5);height:90%;position:fixed;right:0%;top:5%;transition:all .3s ease-in-out;width:5px;z-index:3;}
+nav:hover{width:200px;padding:.5em}
+legend{text-align:justify}
+.listadoEstados{width:40%}
+.cuarto,.medio,.octavo,.tercio{display:inline-block;vertical-align:top}
+.cuarto{margin:.5em 1.3% .5em 1%;width:22%}
+.medio{width:46%;margin:.5em 1% .5em 1%}
+.octavo{margin:.5em 1%;width:10%}
+.tercio{margin:.5em 1.9% .5em 1%;width:30%}
+#ctrol_pestana{font-size:1.2em;text-align:left;}
+#ctrol_pestana li{background:#d4d2d2;cursor:pointer;display:inline-block;list-style:none;margin:0;padding:.5em 1em;position:relative;vertical-align:top;width:auto;}
+#ctrol_pestana li:hover{background:#fff;z-index:2;box-shadow:rgba(180,180,180,0.5) 2px -2px 2px}
+#modulos li{display:inline-block;vertical-align:top;width:21%;margin:1%}
+}
