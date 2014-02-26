@@ -15,6 +15,7 @@ header #nombreUsuario{text-align:right;margin:auto 1em auto auto}
 header #logoEthos,header #logoSos{height:80%;margin:.1em}
 input[type='button']{color:#0077a1}
 input[type='text'],input[type='tel'],input[type='date'],input[type='password'],input[type='button'],select,textarea{padding:.5em}
+input[type='radio'][type='checkbox']{padding:0;background:#f00;cursor:pointer;display:inline-block;padding:1%;margin:1%;vertical-align:top;width:21%}
 table{width:100%;}
 table tr th{color:inherit;position:-webkit-sticky;top:0;background:#0077a1;color:#fff;text-align:center;padding:.3em .2em}
 li,ul{list-style:none;margin:0}

@@ -195,6 +195,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
         <li id='ctos'>Contactos</li>
         <li id='consol'>Consolidado</li>
       </ul>
+
       <fieldset id='pestanas_conten'>
         <form method="post" action="<?php echo $editFormAction; ?>" name="formulario_insert" id="formulario_insert" class="pantallaCompleta">
           <section class='pantalla_completa' id='pesta_gral'>
@@ -234,6 +235,24 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
             <label for="telefono" class="tercio">Telefono de la empresa
               <input type="tel" name="cTelefono" id="cTelefono" placeholder="digite el numero de la empresa">
             </label>
+            <hr size="20" />
+            <label for="producto" class="octavo">Tipo Producto</label><br>
+              <?php
+              //<input type="radio" name="group1" value="Milk"> Milk<br>
+              $cont=0;
+                mysql_select_db($database_sos, $sos);
+                  $query="SELECT * FROM tipo_producto";
+                  $result=mysql_query($query,$sos);
+                  while ($row=mysql_fetch_array($result))
+                  {
+                    if($row['c_nombre_producto']=="Portal Web"){
+                      echo '<input type="checkbox" name="'.$row['id'].'"  id="'.$row['id'].'">'.$row['c_nombre_producto'].'<br>';
+                    }else{
+                      echo '<input type="radio" name="productos" id="'.$row['id'].'" value="'.$row['c_nombre_producto'].'">'.$row['c_nombre_producto'].'<br>';  
+                    }
+                    
+                  }?>
+            
           </section>
           <section class='pantalla_completa' id='pesta_modul'>
             <ul id='modulos'>
@@ -249,10 +268,48 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
             </ul>
           </section>
           <section class='pantalla_completa' id='pesta_contra'>
+            <label for="contrato" class="tercio"> Tipo de contrato
+              <select name="cContrato" id="cContrato" >
+              <option value="0" default selected>Seleccione</option>
+                <?php
+                mysql_select_db($database_sos, $sos);
+                  $query="SELECT * FROM tipo_contratos";
+                  $result=mysql_query($query,$sos);
+                  while ($row=mysql_fetch_array($result))
+                  {
+                  echo'<option VALUE="'.$row['id'].'">'.$row['c_tipo_contrato'].'</option>';
+                  }?>
+              </select>
+            </label>
+            <label for="fechaInicio" class="tercio">Fecha Inicio:
+              <input type="date" name="cFechaInicio" id="cFechaInicio" >
+            </label>
+            <label for="fechaFin" class="tercio">Fecha de Finalizacion:
+              <input type="date" name="cFechaFin" id="cFechaFin" >
+            </label>
             
           </section>
           <section class='pantalla_completa' id='pesta_ctos'>
-            
+            <label for="personasContacto" class="tercio">Personas de Contacto:
+              <input type="text" name="cNombrePersona" id="cNombrePersona" placeholder="Ingrese el nombre de la persona de contacto">
+              <input type="text" name="cCargoContacto" id="cCargoContacto" placeholder="Cargo de la persona de contacto">
+              <input type="email" name="cEmailContacto" id="cEmailContacto" placeholder="Email de la persona de contacto">
+              <input type="tel" name="cTelefonoContacto" id="cTelefonoContacto" placeholder="Ingrese el telefono de la persona de contacto">
+              <input type="button" id="agregarPersona" name="agregarPersona" value="Agregar Persona">
+            </label>
+            <fieldset class='pantallaCompleta' id="tablaPersonas" style="display:none;">
+              <!--<legend><?php echo utf8_encode($row_reportesMostrar['c_nombre_reporte']); ?></legend>-->
+              <section>
+                <table id="cPersonasContacto" >
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Cargo</th>
+                      <th>Email</th>
+                      <th>Telefono</th>
+                    </tr>
+                </table>
+              </section>
+            </fieldset>
           </section>
           <section class='pantalla_completa' id='pesta_consol'>
             
