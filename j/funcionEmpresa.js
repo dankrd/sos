@@ -1,3 +1,24 @@
+var cont=0;
+$(document).ready(function(){
+	$("#agregarPersona").click(function(){
+		$('#tablaPersonas').css("display","block");
+		var cTabla= $("#cPersonasContacto");
+		var cNombre= $("#cNombrePersona").val();
+		var cCargo= $("#cCargoContacto").val();
+		var cEmail= $("#cEmailContacto").val();
+		var cTel= $("#cTelefonoContacto").val();
+		if(cEmail.indexOf('@')>=0){
+			var cFila="<tr>"+
+			"<td id=cNombre"+cont+">"+cNombre+"</td>"+
+			"<td id=cCargo"+cont+">"+cCargo+"</td>"+
+			"<td id=cEmail"+cont+">"+cEmail+"</td>"+
+			"<td id=cTel"+cont+">"+cTel+"</td>"+"</tr>";
+			cTabla.append(cFila);
+			cont=cont+1;	
+		}
+		
+	})
+});
 var activarPestana = {
 	'background' : 'white',
     'z-index' : '2',
@@ -26,3 +47,4 @@ function mostrarPestana(datos){
 		$('#pesta_'+pestana).css('display','inline-block');
 	}
 }
+

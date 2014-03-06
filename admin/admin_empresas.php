@@ -197,7 +197,8 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
       </ul>
 
       <fieldset id='pestanas_conten'>
-        <form method="post" action="<?php echo $editFormAction; ?>" name="formulario_insert" id="formulario_insert" class="pantallaCompleta">
+        <form method="post" action="insert.php" name="formulario_insert" id="formulario_insert" class="pantallaCompleta">
+        <!--<form method="post" action="<?php echo $editFormAction; ?>" name="formulario_insert" id="formulario_insert" class="pantallaCompleta">-->
           <section class='pantalla_completa' id='pesta_gral'>
             <label for='nombreEmpresa' class='tercio'>Nombre de la Empresa
               <input type='text' name='cNombre' id='cNombre' placeholder='Ingrese el nombre de la empresa' title='Coloque Aqui el nombre de la empresa'>
@@ -298,8 +299,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
               <input type="button" id="agregarPersona" name="agregarPersona" value="Agregar Persona">
             </label>
             <fieldset class='pantallaCompleta' id="tablaPersonas" style="display:none;">
-              <!--<legend><?php echo utf8_encode($row_reportesMostrar['c_nombre_reporte']); ?></legend>-->
-              <section>
+             
                 <table id="cPersonasContacto" >
                     <tr>
                       <th>Nombre</th>
@@ -308,11 +308,11 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
                       <th>Telefono</th>
                     </tr>
                 </table>
-              </section>
+              
             </fieldset>
           </section>
           <section class='pantalla_completa' id='pesta_consol'>
-            
+            <input type="submit" name="insertar" value="Insertar">
           </section>
         </form>
       </fieldset>        
