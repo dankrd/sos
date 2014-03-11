@@ -289,6 +289,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
               <input type="date" name="cFechaFin" id="cFechaFin" >
             </label>
             
+            
           </section>
           <section class='pantalla_completa' id='pesta_ctos'>
             <label for="personasContacto" class="tercio">Personas de Contacto:
@@ -297,6 +298,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
               <input type="email" name="cEmailContacto" id="cEmailContacto" placeholder="Email de la persona de contacto">
               <input type="tel" name="cTelefonoContacto" id="cTelefonoContacto" placeholder="Ingrese el telefono de la persona de contacto">
               <input type="button" id="agregarPersona" name="agregarPersona" value="Agregar Persona">
+              <input type="text" name="cContactos" id="cContactos" style="display:none;">
             </label>
             <fieldset class='pantallaCompleta' id="tablaPersonas" style="display:none;">
              

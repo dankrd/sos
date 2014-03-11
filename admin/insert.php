@@ -72,21 +72,32 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
   header("Location: ". $MM_restrictGoTo); 
   exit;
 }
-foreach($_POST as $name => $value) { 
-	if(substr($name, 0, 5) == 'cNombre') { 
-		echo $name .' : '. $value .'<br>' ; 
-	} 
-} /*
+
+
+
 $cNombre=$_POST['cNombre'];
-$cTipo=$_POST['cTipo'];
+$nTipo=$_POST['cTipo'];
 $nCiudad=$_POST['nCiudad'];
 $cDireccion=$_POST['cDireccion'];
 $cTelefono=$_POST['cTelefono'];
+/*mysql_select_db($database_sos, $sos);
+                $query="INSERT INTO empresas(c_razon_social, n_tipo_entidad, n_estado, id_ciudad, c_direccion, c_telefono) 
+                VALUES ('"+$cNombre+"',"+$nTipo+",1,"+nCiudad+",'"+cDireccion"','"+cTelefono"')";*/
+                echo "INSERT INTO empresas(c_razon_social, n_tipo_entidad, n_estado, id_ciudad, c_direccion, c_telefono) 
+                VALUES ('".$cNombre."',".$nTipo.",1,".$nCiudad.",'".$cDireccion."','".$cTelefono."')";
+                mysql_select_db($database_sos, $sos);
+                  $query="SELECT * FROM empresas where c_razon_social like '".$cNombre."'";
+                  $result=mysql_query($query,$sos);
+                  while ($row=mysql_fetch_array($result))
+                  {
+                  echo'<option VALUE="'.$row['id'].'">'.$row['c_tipo_contrato'].'</option>';
+                  }
 $productos=$_POST['productos'];
-echo $cNombre.'-'.$cTipo.'-'.$nCiudad.'-'.$cDireccion.'-'.$cTelefono.'-'.$productos.'-';
+//echo $cNombre.'-'.$nTipo.'-'.$nCiudad.'-'.$cDireccion.'-'.$cTelefono.'-'.$productos.'-';
 if(isset($_POST['5'])){
- echo "-5-";
+ //echo "-5-";
 }
+//echo INSERT INTO `productos_empresas`(`id`, `id_empesa`, `id_producto`, `n_estado`) VALUES ([value-1],[value-2],[value-3],[value-4]);
 
 $ids = array (); 
 mysql_select_db($database_sos, $sos);
@@ -100,41 +111,22 @@ mysql_select_db($database_sos, $sos);
                 	}else{
                 		$ids[]='-';
                 	}
-                	
-                  //echo '<li><input type="checkbox" name="'.$row['id'].'"  id="'.$row['id'].'">'.$row['c_nombre_modulo'].'</li>';
                 }
                 for($t=0;$t<count($ids);$t++){
-                	echo $ids[$t];
+   //             	echo $ids[$t];
                 }
-/*
-<section class='pantalla_completa' id='pesta_modul'>
-            <ul id='modulos'>
-           <?php
-            $cont=0;
-              mysql_select_db($database_sos, $sos);
-                $query="SELECT * FROM modulos";
-                $result=mysql_query($query,$sos);
-                while ($row=mysql_fetch_array($result))
-                {
-                  echo '<li><input type="checkbox" name="'.$row['id'].'"  id="'.$row['id'].'">'.$row['c_nombre_modulo'].'</li>';
-                }?>
-            </ul>
-          </section>
-*/
-/*$cContrato=$_POST['cContrato'];
+$cContrato=$_POST['cContrato'];
 $cFechaInicio=$_POST['cFechaInicio'];
-$cFechaFin=$_POST['cFechaFin'];*/
-//contacto
-/*$cNombrePersona
-$cCargoContacto
-$cEmailContacto
-$cTelefonoContacto*/
+$cFechaFin=$_POST['cFechaFin'];
 //echo $cContrato.'-'.$cFechaInicio.'-'.$cFechaFin.'-';
+$cContactos=$_POST['cContactos'];
 
-
-/*
-
-        </form>
-
-*/
+$cListaContactos= explode('-', $cContactos);
+for ($i = 1; $i < count($cListaContactos); $i++) {
+    $cContacto = explode('/',$cListaContactos[$i]);
+    /*echo $cContacto[0].'-';
+    echo $cContacto[1].'-';
+    echo $cContacto[2].'-';
+    echo $cContacto[3].'-';*/
+}
 ?>

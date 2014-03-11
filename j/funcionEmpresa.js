@@ -7,14 +7,16 @@ $(document).ready(function(){
 		var cCargo= $("#cCargoContacto").val();
 		var cEmail= $("#cEmailContacto").val();
 		var cTel= $("#cTelefonoContacto").val();
+		var cContacto=$('#cContactos').val();
 		if(cEmail.indexOf('@')>=0){
 			var cFila="<tr>"+
-			"<td id=cNombre"+cont+">"+cNombre+"</td>"+
-			"<td id=cCargo"+cont+">"+cCargo+"</td>"+
-			"<td id=cEmail"+cont+">"+cEmail+"</td>"+
-			"<td id=cTel"+cont+">"+cTel+"</td>"+"</tr>";
+			"<td id=cNombre>"+cNombre+"</td>"+
+			"<td id=cCargo>"+cCargo+"</td>"+
+			"<td id=cEmail>"+cEmail+"</td>"+
+			"<td id=cTel>"+cTel+"</td>"+"</tr>";
+			$('#cContactos').val(cContacto+"-"+cNombre+"/"+cCargo+"/"+"/"+cEmail+"/"+cTel);
 			cTabla.append(cFila);
-			cont=cont+1;	
+				
 		}
 		
 	})
