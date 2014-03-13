@@ -247,7 +247,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
                   while ($row=mysql_fetch_array($result))
                   {
                     if($row['c_nombre_producto']=="Portal Web"){
-                      echo '<input type="checkbox" name="'.$row['id'].'"  id="'.$row['id'].'">'.$row['c_nombre_producto'].'<br>';
+                      echo '<input type="checkbox" name="productoscheck"  id="'.$row['id'].'">'.$row['c_nombre_producto'].'<br>';
                     }else{
                       echo '<input type="radio" name="productos" id="'.$row['id'].'" value="'.$row['c_nombre_producto'].'">'.$row['c_nombre_producto'].'<br>';  
                     }
@@ -264,7 +264,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
                 $result=mysql_query($query,$sos);
                 while ($row=mysql_fetch_array($result))
                 {
-                  echo '<li><input type="checkbox" name="'.$row['id'].'"  id="'.$row['id'].'">'.$row['c_nombre_modulo'].'</li>';
+                  echo '<li><input type="checkbox" name="modulos"  id="'.$row['id'].'" value="'.$row['c_nombre_modulo'].'">'.$row['c_nombre_modulo'].'</li>';
                 }?>
             </ul>
           </section>
@@ -326,6 +326,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
   <script src="../j/prefixfree.min.js"></script>
   <script src="../j/funcionGeneral.js"></script>
   <script src="../j/funcionEmpresa.js"></script>    
+  <script src="../j/funcionServicio.js"></script>
 </body>
 </html>
 <?php

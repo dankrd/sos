@@ -149,7 +149,14 @@ if(isset($_POST['n_consulta'])){
         $salida= $salida."<tr><td>".$row_funcionalidades_insertadas['c_nombre_modulo']."</td><td>".utf8_encode($row_funcionalidades_insertadas['c_nombre_funcionalidad'])."</td></tr>";
       }while ($row_funcionalidades_insertadas = mysql_fetch_assoc($funcionalidades_insertadas));
       $salida= $salida."<table>";
-      break;       
+      break;
+    case '5':
+      mysql_select_db($database_sos, $sos);
+      $query_buscar_empresa = sprintf("SELECT * FROM empresas where c_razon_social = %s",GetSQLValueString($_POST['cNombre'],"text"));
+      $buscar_empresa = mysql_query($query_buscar_empresa,$sos) or die(mysql_error()); 
+      $row_buscar_empresa= mysql_fetch_array($buscar_empresa);
+      $salida=$row_buscar_empresa['id'];
+      break;
     default:
       # code...
       break;

@@ -69,3 +69,46 @@ function insertarFuncionalidades(){
 		}).always(function(){
 	});	*/
 }
+function insertarEmpresa(){
+	var cNombre=$("#cNombre").val();
+	var nTipo=$("#cTipo").val();
+	var nCiudad=$("#nCiudad").val();
+	var cDireccion=$("#cDireccion").val();
+	var cTelefono=$("#cTelefono").val();
+	var productosr=$('input:radio[name=productos]:checked').val();
+	var productosc=new Array();
+	$('input:radio[name=productoscheck]:checked').each(function() {
+		productosc.push($(this).val());
+	});
+	console.log(productosr);
+	console.log(productosc);
+	var cContrato=$("#cContrato").val();
+	var cFechaInicio=$("#cFechaInicio").val();
+	var cFechaFin=$("#cFechaFin").val();
+	var cContactos=$("#cContactos").val();
+		 /* iterate through array or object */
+	//echo $cNombre.'-'.$nTipo.'-'.$nCiudad.'-'.$cDireccion.'-'.$cTelefono.'-'.$productos.'-';
+	/*if(isset($_POST['5'])){
+	 //echo "-5-";
+	}
+	//echo INSERT INTO `productos_empresas`(`id`, `id_empesa`, `id_producto`, `n_estado`) VALUES ([value-1],[value-2],[value-3],[value-4]);
+
+	$ids = array (); 
+	mysql_select_db($database_sos, $sos);
+	                $query="SELECT * FROM modulos";
+	                $result=mysql_query($query,$sos);
+	                while ($row=mysql_fetch_array($result))
+	                {
+	                	if(isset($_POST[$row['id']])){
+	                		$ids[]=$row['id'];
+	                		//echo $_POST[$row['id']];
+	                	}else{
+	                		$ids[]='-';
+	                	}
+	                }
+	                for($t=0;$t<count($ids);$t++){
+	   //             	echo $ids[$t];
+	                }
+	                */
+	
+}
