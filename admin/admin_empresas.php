@@ -197,7 +197,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
       </ul>
 
       <fieldset id='pestanas_conten'>
-        <form method="post" action="insert.php" name="formulario_insert" id="formulario_insert" class="pantallaCompleta">
+        <form name="formulario_insert" id="formulario_insert" class="pantallaCompleta">
         <!--<form method="post" action="<?php echo $editFormAction; ?>" name="formulario_insert" id="formulario_insert" class="pantallaCompleta">-->
           <section class='pantalla_completa' id='pesta_gral'>
             <label for='nombreEmpresa' class='tercio'>Nombre de la Empresa
@@ -294,9 +294,9 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
           <section class='pantalla_completa' id='pesta_ctos'>
             <label for="personasContacto" class="tercio">Personas de Contacto:
               <input type="text" name="cNombrePersona" id="cNombrePersona" placeholder="Ingrese el nombre de la persona de contacto">
+              <input type="tel" name="cApellidoPersona" id="cApellidoPersona" placeholder="Ingrese el apellido de la persona de contacto">
               <input type="text" name="cCargoContacto" id="cCargoContacto" placeholder="Cargo de la persona de contacto">
               <input type="email" name="cEmailContacto" id="cEmailContacto" placeholder="Email de la persona de contacto">
-              <input type="tel" name="cTelefonoContacto" id="cTelefonoContacto" placeholder="Ingrese el telefono de la persona de contacto">
               <input type="button" id="agregarPersona" name="agregarPersona" value="Agregar Persona">
               <input type="text" name="cContactos" id="cContactos" style="display:none;">
             </label>
@@ -305,16 +305,16 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
                 <table id="cPersonasContacto" >
                     <tr>
                       <th>Nombre</th>
+                      <th>Apellido</th>
                       <th>Cargo</th>
                       <th>Email</th>
-                      <th>Telefono</th>
                     </tr>
                 </table>
               
             </fieldset>
           </section>
           <section class='pantalla_completa' id='pesta_consol'>
-            <input type="submit" name="insertar" value="Insertar">
+            <input type="Button" name="insertar" id="insertar" value="Insertar">
           </section>
         </form>
       </fieldset>        

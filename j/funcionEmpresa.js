@@ -4,17 +4,17 @@ $(document).ready(function(){
 		$('#tablaPersonas').css("display","block");
 		var cTabla= $("#cPersonasContacto");
 		var cNombre= $("#cNombrePersona").val();
+		var cApellido= $("#cApellidoPersona").val();
 		var cCargo= $("#cCargoContacto").val();
 		var cEmail= $("#cEmailContacto").val();
-		var cTel= $("#cTelefonoContacto").val();
 		var cContacto=$('#cContactos').val();
 		if(cEmail.indexOf('@')>=0){
 			var cFila="<tr>"+
 			"<td id=cNombre>"+cNombre+"</td>"+
+			"<td id=cApellido>"+cApellido+"</td>"+
 			"<td id=cCargo>"+cCargo+"</td>"+
-			"<td id=cEmail>"+cEmail+"</td>"+
-			"<td id=cTel>"+cTel+"</td>"+"</tr>";
-			$('#cContactos').val(cContacto+"-"+cNombre+"/"+cCargo+"/"+"/"+cEmail+"/"+cTel);
+			"<td id=cEmail>"+cEmail+"</td>"+"</tr>";
+			$('#cContactos').val(cContacto+"-"+cNombre+"/"+cApellido+"/"+cEmail+"/"+cCargo);
 			cTabla.append(cFila);
 				
 		}

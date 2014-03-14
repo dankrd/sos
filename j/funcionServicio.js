@@ -69,46 +69,113 @@ function insertarFuncionalidades(){
 		}).always(function(){
 	});	*/
 }
-function insertarEmpresa(){
-	var cNombre=$("#cNombre").val();
-	var nTipo=$("#cTipo").val();
-	var nCiudad=$("#nCiudad").val();
-	var cDireccion=$("#cDireccion").val();
-	var cTelefono=$("#cTelefono").val();
-	var productosr=$('input:radio[name=productos]:checked').val();
-	var productosc=new Array();
-	$('input:radio[name=productoscheck]:checked').each(function() {
-		productosc.push($(this).val());
-	});
-	console.log(productosr);
-	console.log(productosc);
-	var cContrato=$("#cContrato").val();
-	var cFechaInicio=$("#cFechaInicio").val();
-	var cFechaFin=$("#cFechaFin").val();
-	var cContactos=$("#cContactos").val();
-		 /* iterate through array or object */
-	//echo $cNombre.'-'.$nTipo.'-'.$nCiudad.'-'.$cDireccion.'-'.$cTelefono.'-'.$productos.'-';
-	/*if(isset($_POST['5'])){
-	 //echo "-5-";
-	}
-	//echo INSERT INTO `productos_empresas`(`id`, `id_empesa`, `id_producto`, `n_estado`) VALUES ([value-1],[value-2],[value-3],[value-4]);
+$(document).ready(function(){
+	$("#insertar").click(function(){
+		var cNombre=$("#cNombre").val();
+		var nTipo=$("#cTipo").val();
+		var nCiudad=$("#nCiudad").val();
+		var cDireccion=$("#cDireccion").val();
+		var cTelefono=$("#cTelefono").val();
+		var productosr=$('input:radio[name=productos]:checked').attr("id");
+		var productosc="";
+		var productos=productosr;
 
-	$ids = array (); 
-	mysql_select_db($database_sos, $sos);
-	                $query="SELECT * FROM modulos";
-	                $result=mysql_query($query,$sos);
-	                while ($row=mysql_fetch_array($result))
-	                {
-	                	if(isset($_POST[$row['id']])){
-	                		$ids[]=$row['id'];
-	                		//echo $_POST[$row['id']];
-	                	}else{
-	                		$ids[]='-';
-	                	}
-	                }
-	                for($t=0;$t<count($ids);$t++){
-	   //             	echo $ids[$t];
-	                }
-	                */
-	
-}
+		$('input[name=productoscheck]:checked').each(function() {
+			productosc+=$(this).attr("id");
+		});
+		if(productosc.length==1){
+			productos=productos+','+productosc;
+		}
+		else
+		var modulos="";
+		$('input[name=modulos]:checked').each(function() {
+			modulos+=$(this).attr("id")+",";
+		});
+		var cContrato=$("#cContrato").val();
+		var cFechaInicio=$("#cFechaInicio").val();
+		var cFechaFin=$("#cFechaFin").val();
+		var cContactos=$("#cContactos").val();
+		/*$.post('../j/insertarVarios.php',{
+			c_Nombre: cNombre,
+			n_Tipo:nTipo,
+			n_Ciudad:nCiudad,
+			c_Direccion:cDireccion,
+			c_Telefono:cTelefono,
+			n_insertar: 2
+			}).done(function(data){
+				console.log(data);
+			}).fail(function(){
+			}).always(function(){
+		});*/
+		$.post('../j/consultasVarias.php',{
+			cNombre: cNombre,
+			n_consulta: 5
+			}).done(function(data){
+				console.log('La empresa es:'+data);
+				var producto=productos.split(",");
+				for (var i = 0; i < producto.length; i++) {
+					$.post('../j/insertarVarios.php',{
+						n_empresa: data,
+						n_producto: producto[i],
+						n_insertar: 3
+						}).done(function(data1){
+							console.log(data1);
+						}).fail(function(){
+						}).always(function(){
+					});
+				};
+				///////
+				var cListado=cContactos.split("-");
+				for (var i = 1; i < cListado.length; i++) {
+					var datos=cListado[i].split("/");
+					var name=datos[0];
+					var lastname=datos[1];
+					var car=datos[2];
+					var correo=datos[3];				
+					$.post('../j/insertarVarios.php',{
+						n_empresa: data,
+						c_nombreContacto:name,
+						c_apellidosContacto:lastname,
+						c_cargo:car,
+						c_email: correo,
+						n_insertar: 4
+						}).done(function(data1){
+							console.log(data1);
+						}).fail(function(){
+						}).always(function(){
+					});
+				};
+				////////
+				$.post('../j/insertarVarios.php',{
+					n_empresa: data,
+					n_contrato:cContrato,
+					d_fechaini:cFechaInicio,
+					d_fechafin:cFechaFin,
+					c_observaciones: "",
+					n_insertar: 5
+					}).done(function(data){
+						console.log(data);
+					}).fail(function(){
+					}).always(function(){
+				});
+				///////
+				var listModulos=modulos.split(",");
+				for (var i = 0; i < (listModulos.length-1); i++) {
+					var nModulo = listModulos[i]
+					$.post('../j/insertarVarios.php',{
+						n_empresa: data,
+						n_modulo:nModulo,
+						n_insertar: 6
+						}).done(function(data){
+							console.log(data);
+						}).fail(function(){
+						}).always(function(){
+					});
+				};
+
+
+			}).fail(function(){
+			}).always(function(){
+		});
+	})
+});
