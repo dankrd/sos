@@ -171,9 +171,9 @@ if(isset($_POST['n_insertar'])){
 		break;
 	case '9':
 		mysql_select_db($database_sos,$sos);
-		$query_insert_funcionalidadServicio=sprintf("INSERT INTO funcionalidad_servicio(i_cod_funcionalidad, id_producto) VALUES (%s,%s)",
-			GetSQLValueString($_POST['n_funcionalidad'],"int"),
-			GetSQLValueString($_POST['n_producto']));
+		$query_insert_tipoProducto=sprintf("INSERT INTO tipo_producto(c_nombre_producto) VALUES ($s)",
+			GetSQLValueString($_POST['c_producto'],"text"));
+		$Result1=mysql_query($query_insert_tipoProducto,$sos)
 		break;
 	case '10':
 		mysql_select_db($database_sos,$sos);
@@ -193,6 +193,150 @@ if(isset($_POST['n_insertar'])){
 		break;
 	case '12':
 		mysql_select_db($database_sos,$sos);
+		$query_insert_avisame=sprintf("INSERT INTO avisame( id_usuario_avisar, i_tipo, c_descripcion, n_estado) VALUES ($s,$s,$s,1)",
+			GetSQLValueString($_POST['n_usuarioAvisar'],"int"),
+			GetSQLValueString($_POST['n_tipo'],"int"),
+			GetSQLValueString($_POST['c_descripcion'],"text"));
+		$Result1=mysql_query($query_insert_avisame,$sos) or die(mysql_error());
+		break;
+	case '13':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_ciudades=sprintf("INSERT INTO ciudades(c_nombre_ciudad) VALUES ($s)",
+			GetSQLValueString($_POST['c_ciudad'],"text"));
+		$Result1=mysql_query($query_insert_ciudades,$sos) or die(mysql_error());
+		break;
+	case '14':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_criticidad=sprintf("INSERT INTO criticidad(c_nombreCriticidad, n_estado) VALUES ($s,1)",
+			GetSQLValueString($_POST['c_nombre'],"text"));
+		$Result1=mysql_query($query_insert_criticidad,$sos) or die(mysql_error());
+		break;
+	case '15':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_direccionEmpresa=sprintf("INSERT INTO direccion_empresas(id_empresa, c_direccion, c_barrio, id_ciudad, n_principal, n_estado) VALUES ($s,$s,$s,$s,$s,1)",
+			GetSQLValueString($_POST['n_empresa'],"int"),
+			GetSQLValueString($_POST['c_direccion'],"text"),
+			GetSQLValueString($_POST['c_barrio'],"text"),
+			GetSQLValueString($_POST['n_ciudad'],"int"),
+			GetSQLValueString($_POST['n_principal'],"int"));
+		$Result1=mysql_query($query_insert_direccionEmpresa,$sos) or die(mysql_error());
+		break;
+	case '16':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_funciones=sprintf("INSERT INTO funciones(c_nombre_funcion, c_archivo, c_imagen, n_estado, n_padre) VALUES ($s,$s,$s,1,$s)",
+			GetSQLValueString($_POST['c_nombre'],"text"),
+			GetSQLValueString($_POST['c_archivo'],"text"),
+			GetSQLValueString($_POST['c_imagen'],"text"),
+			GetSQLValueString($_POST['n_padre'],"int"));
+		$Result1=mysql_query($query_insert_funciones,$sos) or die(mysql_error());
+		break;
+	case '17':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_modulos=sprintf("INSERT INTO modulos(c_nombre_modulo, n_estado) VALUES ($s,1)",
+			GetSQLValueString($_POST['c_nombre'],"text"));
+		$Result1=mysql_query($query_insert_modulos,$sos) or die(mysql_error());
+		break;
+	case '18':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_opciones=sprintf("INSERT INTO opciones(id_funcion, id_perfil, n_estado) VALUES ($s,$s,1)",
+			GetSQLValueString($_POST['n_funcion'],"int"),
+			GetSQLValueString($_POST['n_perfil'],"int"));
+		$Result1=mysql_query($query_insert_opciones,$sos) or die(mysql_error());
+		break;
+	case '19':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_opcionBuscar=sprintf("INSERT INTO opcion_buscar(n_opcion_buscar, c_columna_buscar, c_nombre_columa_buscar, n_tipo_dato, c_tabla_buscar, c_columna_tabla) VALUES ($s,$s,$s,$s,$s,$s)",
+			GetSQLValueString($_POST['n_opcBuscar'],"int"),
+			GetSQLValueString($_POST['c_columna'],"text"),
+			GetSQLValueString($_POST['c_nombreColumna'],"text"),
+			GetSQLValueString($_POST['n_tDato'],"int"),
+			GetSQLValueString($_POST['c_tBuscar'],"text"),
+			GetSQLValueString($_POST['c_columTabla'],"text"));
+		$Result1=mysql_query($query_insert_opcionBuscar,$sos) or die(mysql_error());
+		break;
+	case '20':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_perfiles=sprintf("INSERT INTO perfiles(c_nombre_perfil) VALUES ($s)",
+			GetSQLValueString($_POST['c_nPerfil'],"text"));
+		$Result1=mysql_query($query_insert_perfiles,$sos) or die(mysql_error());
+		break;
+	case '21':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_reporteHome=sprintf("INSERT INTO reportes_home(c_nombre_reporte, n_aplica, c_columnas_mostrar, c_descripcion, c_script) VALUES ($s,$s,$s,$s,$s)",
+			GetSQLValueString($_POST['c_reporte'],"text"),
+			GetSQLValueString($_POST['n_aplica'],"text"),
+			GetSQLValueString($_POST['c_columnMostrar'],"text"),
+			GetSQLValueString($_POST['c_descripcion'],"text"),
+			GetSQLValueString($_POST['c_script'],"text"));
+		$Result1=mysql_query($query_insert_reporteHome,$sos)or die(mysql_error());
+		break;
+	case '22':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_seguimientoServicio=sprintf("INSERT INTO seguimiento_servicios(id_servicio, id_tipo, n_muestra_cliente, id_usuario_radica, id_usuario_asigna, c_descripcion, n_estado) VALUES ($s,$s,$s,$s,$s,$s,1)",
+			GetSQLValueString($_POST['n_servicio'],"int"),
+			GetSQLValueString($_POST['n_tipo'],"int"),
+			GetSQLValueString($_POST['n_cliente'],"int"),
+			GetSQLValueString($_POST['n_radica'],"int"),
+			GetSQLValueString($_POST['n_asigna'],"int"),
+			GetSQLValueString($_POST['c_descripcion'],"text"));
+		$Result1=mysql_query($query_insert_seguimientoServicio,$sos)or die(mysql_error());
+		break;
+	case '23':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_servicios=sprintf("INSERT INTO servicios(id_entidad, id_tipo_servicio, id_criticidad, f_fecha_programa, f_fecha_ingreso, f_fecha_cierre, n_estado_actual, n_asignado_actual) VALUES ($s,$s,$s,$s,$s,$s,$s,$s)",
+			GetSQLValueString($_POST['n_entidad'],"int"),
+			GetSQLValueString($_POST['n_tServicio'],"int"),
+			GetSQLValueString($_POST['n_criticidad'],"int"),
+			GetSQLValueString($_POST['f_fechaProg'],"date"),
+			GetSQLValueString($_POST['f_fechaIngre'],"date"),
+			GetSQLValueString($_POST['f_fechaCierre'],"date"),
+			GetSQLValueString($_POST['n_estadoActual'],"int"),
+			GetSQLValueString($_POST['n_asignadoActual'],"int"));
+		$Result1=mysql_query($query_insert_servicios,$sos) or die(mysql_error());
+		break;
+	case '24':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_telefonos=sprintf("INSERT INTO telefonos_empresas(id_empresa, c_telefono, id_ciudad, n_estado) VALUES ($s,$s,$s,1)",
+			GetSQLValueString($_POST['n_empresa'],"int"),
+			GetSQLValueString($_POST['c_telefono'],"text"),
+			GetSQLValueString($_POST['n_ciudad'],"id"));
+		$Result1=mysql_query($query_insert_telefonos,$sos) or die(mysql_error());
+		break;
+	case '25':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_tipoCargos=sprintf("INSERT INTO tipo_cargos(c_tipo_cargo) VALUES ($s)",
+			GetSQLValueString($_POST['c_cargo'],"text"));
+		$Result1=mysql_query($query_insert_tipoCargos,$sos) or die(mysql_error());
+		break;
+	case '26':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_tipoCargos=sprintf("INSERT INTO tipo_cargos(c_tipo_cargo) VALUES ($s)"
+			GetSQLValueString($_POST['c_tCargo'],"text"));
+		$Result1=mysql_query($query_insert_tipoCargos,$sos) or die(mysql_error());
+		break;
+	case '27':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_tipoContratos=sprintf("INSERT INTO tipo_contratos(c_tipo_contrato, n_estado) VALUES ($s,1)",
+			GetSQLValueString($_POST['c_tContrato'],"text"));
+		$Result1=mysql_query($query_insert_tipoContratos,$sos);
+		break;
+	case '28':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_tipoServicio=sprintf("INSERT INTO tipo_servicio(c_nombreTipoServicio, n_estado, c_descripcionTipo) VALUES ($s,1,$s)",
+			GetSQLValueString($_POST['c_nombreServicio'],"text"),
+			GetSQLValueString($_POST['c_descripcion'],"text"));
+		$Result1=mysql_query($query_insert_tipoServicio,$sos);
+		break;
+	case '29':
+		mysql_select_db($database_sos,$sos);
+		$query_insert_usuarios=sprintf("INSERT INTO usuarios(c_nombre, c_login, c_contra, c_email, n_estado, n_perfil, id_empresa) VALUES ($s,$s,$s,$s,1,$s,$s)",
+			GetSQLValueString($_POST['c_nombre'],"text"),
+			GetSQLValueString($_POST['c_login'],"text"),
+			GetSQLValueString($_POST['c_password'],"text"),
+			GetSQLValueString($_POST['c_email'],"text"),
+			GetSQLValueString($_POST['n_perfil'],"int"),
+			GetSQLValueString($_POST['n_empresa'],"int"));
+		$Result1=mysql_query($query_insert_usuarios,$sos);
 		break;
     default:
       # code...

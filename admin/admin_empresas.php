@@ -302,7 +302,7 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
             </label>
             <fieldset class='pantallaCompleta' id="tablaPersonas" style="display:none;">
              
-                <table id="cPersonasContacto" >
+                <table id="">
                     <tr>
                       <th>Nombre</th>
                       <th>Apellido</th>
@@ -310,8 +310,9 @@ $totalRows_nuevo_servicio = mysql_num_rows($nuevo_servicio);
                       <th>Email</th>
                     </tr>
                 </table>
-              
+                <table id="cPersonasContacto"> </table>       
             </fieldset>
+            <input type="Button" name="recorrer" id="recorrer" value="recorrer"></input>
           </section>
           <section class='pantalla_completa' id='pesta_consol'>
             <input type="Button" name="insertar" id="insertar" value="Insertar">

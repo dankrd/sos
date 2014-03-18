@@ -10,10 +10,10 @@ $(document).ready(function(){
 		var cContacto=$('#cContactos').val();
 		if(cEmail.indexOf('@')>=0){
 			var cFila="<tr>"+
-			"<td id=cNombre>"+cNombre+"</td>"+
-			"<td id=cApellido>"+cApellido+"</td>"+
-			"<td id=cCargo>"+cCargo+"</td>"+
-			"<td id=cEmail>"+cEmail+"</td>"+"</tr>";
+			"<td>"+cNombre+"</td>"+
+			"<td>"+cApellido+"</td>"+
+			"<td>"+cCargo+"</td>"+
+			"<td>"+cEmail+"</td>"+"</tr>";
 			$('#cContactos').val(cContacto+"-"+cNombre+"/"+cApellido+"/"+cEmail+"/"+cCargo);
 			cTabla.append(cFila);
 				
@@ -21,6 +21,32 @@ $(document).ready(function(){
 		
 	})
 });
+$(document).ready(function(){
+	$("#recorrer").click(function() {
+		$("#cPersonasContacto tbody tr").each(function(index) {
+			var campo1, campo2,campo3,campo4;
+			$(this).children('td').each(function(index2) {
+				switch (index2){
+					case 0:
+						campo1=$(this).text();
+						break;
+					case 1:
+						campo2=$(this).text();
+						break;
+					case 2:
+						campo3=$(this).text();
+						break;
+					case 3:
+						campo4=$(this).text();
+						break;
+				}
+				$(this).css("background-color","#ECF8E0");
+			});
+			console.log(campo1+'-'+campo2+'-'+campo3+'-'+campo4);
+		});
+	});
+});
+
 var activarPestana = {
 	'background' : 'white',
     'z-index' : '2',
